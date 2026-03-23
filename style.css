@@ -1,0 +1,341 @@
+/* 1. التنسيق الأساسي للصفحة */
+body {
+    background-color: rgb(29, 150, 104);
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* سنترة كل محتوى الصفحة عرضياً */
+}
+
+/* 2. شريط التنقل (المنيو) */
+.vertical_list {
+    display: flex;
+    align-items: center;      /* سنترة العناصر جوه المنيو طولياً */
+    justify-content: flex-start; 
+    gap: 25px;
+    background-color: rgb(55, 185, 135); 
+    padding: 10px 30px;
+    margin-top: 25px;
+    list-style: none;
+    border-radius: 60px;      /* الحواف البيضاوية للمنيو */
+    width: 90%;
+    max-width: 1100px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* تنسيق الروابط داخل المنيو */
+.vertical_list li a {
+    color: purple;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.vertical_list li a:hover {
+    color: #5e005e;
+    transform: scale(1.1);
+}
+
+/* --- السحر اللي بيزق الزرار لليمين --- */
+.neon-link {
+    margin-left: auto; 
+    text-decoration: none;
+}
+
+/* 3. الزرار الأسطوري (النيون المشع) */
+.potiti {
+    background: linear-gradient(45deg, #ff0000, #b30000);
+    color: white;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    
+    /* إفيكت النيون */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 
+                0 0 20px rgba(255, 0, 0, 0.4);
+    
+    /* أنيمايشن النبض */
+    animation: neonPulse 2s infinite;
+}
+
+/* أنيمايشن النبض للزرار */
+@keyframes neonPulse {
+    0% { transform: scale(1); box-shadow: 0 0 10px rgba(255, 0, 0, 0.7); }
+    50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(255, 0, 0, 0.9), 0 0 40px rgba(255, 0, 0, 0.6); }
+    100% { transform: scale(1); box-shadow: 0 0 10px rgba(255, 0, 0, 0.7); }
+}
+
+/* إفيكت اللمعان الأبيض اللي بيعدي */
+.potiti::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: rotate(30deg);
+    transition: 0.7s;
+    opacity: 0;
+}
+
+.potiti:hover::after {
+    left: 120%;
+    opacity: 1;
+}
+
+.potiti:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 1);
+}
+
+/* 4. منطقة الفيديوهات (الشورتس) */
+.video-section {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.row-top {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap; /* عشان يشتغل على الموبايل برضه */
+    padding: 20px;
+}
+
+/* كارت الفيديو (البرواز الأصفر) */
+.video-card {
+    width: 260px; 
+    height: 460px;
+    border: 5px solid yellow; /* البرواز اللي رسمته */
+    border-radius: 25px;
+    overflow: hidden;
+    background-color: #000;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.video-card:hover {
+    transform: translateY(-10px); /* الفيديو يترفع لما تقف عليه */
+}
+
+.video-card iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.buutoon {
+    /* الألوان الأساسية: تدرج أزرق نيون */
+    background: linear-gradient(45deg, #0077ff, #00d4ff, #0077ff);
+    background-size: 200% auto;
+    color: white;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 50px; /* حواف بيضاوية زي المنيو */
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    display: block;
+    margin: 20px auto;
+    
+    /* 1. تأثير توهج أزرق (Neon Glow) */
+    box-shadow: 0 0 15px rgba(0, 119, 255, 0.6), 
+                0 0 30px rgba(0, 212, 255, 0.4);
+    
+    /* 2. أنيمايشن "التنفس" أو النبض */
+    animation: bluePulse 2.5s infinite;
+}
+
+/* حركة النبض الزرقاء */
+@keyframes bluePulse {
+    0% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 119, 255, 0.6); }
+    50% { transform: scale(1.03); box-shadow: 0 0 35px rgba(0, 212, 255, 0.9), 0 0 50px rgba(0, 119, 255, 0.5); }
+    100% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 119, 255, 0.6); }
+}
+
+/* 3. إفيكت "المسح الضوئي" (Scanline) اللي بيعدي بالعرض */
+.buutoon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    transition: all 0.6s;
+}
+
+/* 4. إفيكت لما الماوس يلمس الزرار (Hover) */
+.buutoon:hover {
+    letter-spacing: 2px; /* الكلام يبعد عن بعضه سنة (إفيكت جامد) */
+    background-position: right center; /* تحريك التدرج اللوني */
+    box-shadow: 0 0 50px rgba(0, 212, 255, 1);
+    transform: translateY(-5px) scale(1.1); /* يترفع لفوق ويكبر */
+}
+
+/* لما تقف عليه، المسح الضوئي بيعدي بسرعة */
+.buutoon:hover::before {
+    left: 100%;
+}
+
+/* 5. إفيكت "الضغط" لما تدوس كليك */
+.buutoon:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+}
+
+
+/* --- Background Chaos Mode --- */
+body.chaos-mode {
+    background-color: #0b0e14;
+    background-image: radial-gradient(#1d9668 1px, transparent 1px);
+    background-size: 30px 30px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+/* --- Real Subscriber Counter --- */
+.subs-counter-container {
+    background: rgba(0, 0, 0, 0.8);
+    border: 4px solid #00d4ff;
+    border-radius: 30px;
+    padding: 20px 40px;
+    margin: 40px auto;
+    width: fit-content;
+    text-align: center;
+    box-shadow: 0 0 30px #00d4ff, inset 0 0 20px #00d4ff;
+    animation: counterPulse 1s infinite alternate;
+}
+
+@keyframes counterPulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+.subs-number {
+    font-size: 60px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* --- Balloons Area --- */
+#balloon-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 99999; /* ABOVE EVERYTHING */
+    overflow: hidden;
+}
+
+.balloon {
+    position: absolute;
+    bottom: -100px;
+    width: 30px;
+    height: 40px;
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+    animation: floatUp 4s linear forwards, wobble 2s ease-in-out infinite alternate;
+}
+
+@keyframes floatUp {
+    to { transform: translateY(-120vh); opacity: 0; }
+}
+
+@keyframes wobble {
+    from { transform: translateX(-20px) rotate(-15deg); }
+    to { transform: translateX(20px) rotate(15deg); }
+}
+
+/* --- Mega Button --- */
+.mega-button {
+    background: linear-gradient(90deg, #ff0000, #ff4d4d);
+    color: white;
+    padding: 25px 60px;
+    border: none;
+    border-radius: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 30px #ff0000;
+    transition: 0.3s;
+}
+
+.mega-button:hover {
+    transform: scale(1.2) rotate(-3deg);
+    box-shadow: 0 0 60px #ff0000;
+}
+
+/* --- Playlist Cards (BACK TO THE 1ST LOOK) --- */
+.playlist-section {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.playlist-card-small {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 25px;
+    width: 260px;
+    text-align: center;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* حركة صايعة */
+    cursor: pointer;
+}
+
+.playlist-card-small:hover {
+    transform: translateY(-15px) rotate(2deg); /* تطلع لفوق وتلف سنة */
+}
+
+/* النيون الملون */
+.coding-glow:hover { border-color: #00d4ff; box-shadow: 0 0 30px #00d4ff; }
+.web-glow:hover { border-color: #00ffcc; box-shadow: 0 0 30px #00ffcc; }
+.setup-glow:hover { border-color: #bd00ff; box-shadow: 0 0 30px #bd00ff; }
+
+.card-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #fff;
+    color: #000;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.h1_patatas{
+    display: flex;
+    align-items: center;      /* سنترة العناصر جوه المنيو طولياً */
+    justify-content: flex-start; 
+    gap: 25px;
+    background-color: rgb(44, 65, 99); 
+    padding: 10px 30px;
+    margin-top: 25px;
+    list-style: none;
+    border-radius: 60px;      /* الحواف البيضاوية للمنيو */
+    width: 90%;
+    max-width: 1100px;
+    box-shadow: 0 4px 10px rgb(10, 171, 7);
+    color: #fff;
+}
