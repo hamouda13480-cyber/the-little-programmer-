@@ -340,8 +340,6 @@ body.chaos-mode {
     color: #fff;
 }
 .text{
-
-.h1_patatas{
     display: flex;
     align-items: center;      /* سنترة العناصر جوه المنيو طولياً */
     justify-content: flex-start; 
@@ -355,5 +353,5 @@ body.chaos-mode {
     max-width: 1100px;
     box-shadow: 0 4px 10px rgb(10, 171, 7);
     color: #fff;
-}
+    
 }
